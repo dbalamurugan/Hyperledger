@@ -1,0 +1,39 @@
+/**
+ * Write your model definitions here
+
+ */
+ namespace org.bala.bc.hl.shopregistation
+
+ abstract participant User identified by aadharId {
+  o String aadharId
+  o String firstName
+  o String lastName
+  o String email
+
+}
+
+participant Seller extends User {
+  o String seller_details
+}
+
+participant Buyer extends User {
+  o String buyer_details
+  
+}
+
+asset Shop identified by shopId {
+  o String shopId
+  o String address 
+  o String owner_name
+  o String description
+
+}
+
+transaction Ownershipchange {
+  o String trasactionDescription
+  -->Buyer buyer
+  -->Seller seller
+  -->Shop shop
+  
+
+}
